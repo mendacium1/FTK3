@@ -1,0 +1,112 @@
+1.)
+a) alle Zahlen von 1-32 (* nimmt null aus)
+b) Ja, durch 33-1=32
+c) si.euler_phi(29)=28
+29 is prim deshalb 29-1
+d) si.euler_phi(77)=60
+prime_factors: 7,11
+euler_phi = 77 * (1-1/7) * (1-1/11) = 60
+e) si.euler_phi(125)=100
+prime_factors: 5,5,5 //nur eine 5 nehmen
+euler_phi = 125 * (1-1/5)
+f) si.euler_phi(6469693230)=1021870080
+python -c "import si;print(si.euler_phi(6469693230))"
+
+g) si.euler_phi(7922124000)=1807142400
+python -c "import si;print(si.euler_phi(7922124000))"
+
+2.)
+n = 9788741= p * q
+euler_phi(n) = 9782412
+
+Bekannte Formel:
+euler_phi( p * q ) = p * q - (p + q - 1)
+
+Zwei Funktionen -> Gleichungssystem
+Wolfram alpha:
+9782412=p * q - (p + q - 1); 9788741= p * q
+p = 2687, q = 3643
+
+3.)
+a^b mod b
+12345¹²³⁴ mod 131
+euler_phi(131) = 130
+a = b mod (euler_phi(n))
+
+a^(p−1) ≡ 1 mod p
+pow(a,130,131) ≡ 1 mod p = 1
+a = 11
+Da: 12345 mod 131 = 11
+ist: 12345^(1234) mod 131 ≡ 11^(1234) mod 131
+
+a^(130) ≡ 1 mod 131
+1234 mod 130 = 40
+11^(1234) ≡ 11^(44) mod 131
+
+11^(2) mod 131 = 121
+11^(4) mod 131 = 121^2 mod 131 = 50
+11^(8) mod 131 = 50^2 mod 131 = 69
+11^(16) mod 131 = 69^2 mod 131 = 97
+11^(32) mod 131 = 97^2 mod 131 = 26
+
+11^(44) mod 131 = (11³² * 11⁸ * 11⁴) mod 131
+11^(44) mod 131 = (26 * 69 * 50) mod 131
+11^(44) mod 131 = 89700 mod 131
+11^(44) mod 131 = 78
+
+->
+12345¹²³⁴ mod 131 ≡ 11⁴⁴ mod 131 = 78
+
+
+
+4.)
+x = 45 mod 79
+x = 49 mod 89
+python -c "import si;print(si.chinese_remainder([79,89],[45,49])))"
+x = 4232
+
+händisch:
+z1 = 45
+z2 = 49
+n1 = 79
+n2 = 89
+
+n = n1 * n2 = 79 * 89 = 7031
+q1 = n/n1 = 7031/79 = 89
+q2 = n/n2 = 7031/89 = 79
+
+r1 = q1^(-1) mod n1 = 89^(-1) mod 79 = 8
+r2 = q2^(-1) mod n2 = 79^(-1) mod 89 = 80
+
+z = (z1 * q1 * r1) + (z2 * q2 * r2) mod n
+z = (45 * 89 * 8) + (49 * 79 * 80) mod 7031
+z = 4232
+
+
+5.)
+x = 4 mod 23
+x = 6 mod 21
+x = 10 mod 20
+python -c "import si;print(si.chinese_remainder(si.chinese_remainder([23,21,20],[4,6,10])))"
+x = 510
+
+z1 = 4
+z2 = 6
+z3 = 10
+n1 = 23
+n2 = 21
+n3 = 20
+
+
+n = n1 * n2 * n3 = 23 * 21 * 20 = 9660
+q1 = n/n1 = 9660/ 23 = 420
+q2 = n/n2 = 9660/ 21 = 460
+q3 = n/n3 = 9660/ 20 = 483
+
+r1 = q1^(-1) mod n1 = 420^(-1) mod 23 = 4
+r2 = q2^(-1) mod n2 = 460^(-1) mod 21 = 10
+r3 = q3^(-1) mod n3 = 483^(-1) mod 20 = 7
+
+z = (z1 * q1 * r1) + (z2 * q2 * r2) + (z3 + q3 * r3) mod n
+z = (4 * 420 * 4) + (6 * 460 * 10) + (10 * 483 * 7) mod 9660
+z = 510
