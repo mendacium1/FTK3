@@ -1,10 +1,9 @@
 import math
-import sympy  # Diese Bibliothek hilft uns bei der Arbeit mit sehr großen Zahlen und Primzahlen.
 
 def fermat_factor(n):
-    assert n % 2 != 0  # Stellt sicher, dass die Zahl ungerade ist.
+    assert n % 2 != 0  
 
-    a = math.isqrt(n) + 1  # Wir verwenden die math-Bibliothek hier.
+    a = math.isqrt(n) + 1
     b2 = a * a - n
 
     while not is_perfect_square(b2):  # Wir verwenden eine benutzerdefinierte Funktion statt sympy
