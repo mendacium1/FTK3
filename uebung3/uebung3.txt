@@ -17,10 +17,12 @@ ODER:
 
 si.multiplicative_order(6,131)
 
+---------------------------------------------------------------------------------------------
 2.)
 si.multiplicative_order(3116701003, 3696837919)
 -> 3696837918
 
+---------------------------------------------------------------------------------------------
 3.)
 Diskreter Logarithmus von 37 zur Basis 6 in Z_131^*
 via Brute-Force-Angriff
@@ -29,15 +31,18 @@ gesucht:
 6^x ≡ 37 mod 131
 
 base = 6
-x = 37
+target = 37
 n = 131
 
-counter = 0
+x = 0
 while True:
-    if pow(base, counter, n) == x:
+    if pow(base, x, n) == target:
         break
-    counter += 1
+    x += 1
 
-print(counter)
+print(x)
 
+-> 127
 
+---------------------------------------------------------------------------------------------
+4.)
