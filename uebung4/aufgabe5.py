@@ -6,6 +6,7 @@ def elliptic_curve_y_squared(x):
 def is_on_curve(x, y):
     return y**2 == elliptic_curve_y_squared(x)
 
+# ! neutrales element könnte dazu addiert werden
 def add_points(x1, y1, x2, y2):
     # Inverse Punkte
     if x1 == x2 and y1 == -y2:

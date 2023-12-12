@@ -1,11 +1,6 @@
 from cryptography.hazmat.primitives.asymmetric import ec
-from cryptography.hazmat.primitives import serialization
-from cryptography.hazmat.primitives.asymmetric import utils
-from cryptography.hazmat.primitives.asymmetric import ec
 from cryptography.hazmat.primitives import hashes
 from cryptography.exceptions import InvalidSignature
-
-# ... (curve overview section from your previous script)
 
 GREEN = '\033[92m'
 RED = '\033[91m'
