@@ -15,8 +15,8 @@ pip install . --upgrade
 # TODO:
 Implementierung der verwendeten Verfahren:
  - [x] Klausur/python_jaki/DH
- - [ ] Klausur/python_jaki/DSA
- - [ ] Klausur/python_jaki/EC
+ - [x] Klausur/python_jaki/DSA
+ - [x] Klausur/python_jaki/EC
  - [ ] Klausur/python_jaki/HASH
  - [ ] Klausur/python_jaki/POLY
  - [x] Klausur/python_jaki/RSA
