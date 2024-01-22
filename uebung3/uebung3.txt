@@ -1,0 +1,48 @@
+1.)
+Z_131^*
+ord(6) = ?
+
+g = 6 (element in Gruppe)
+g^0 := neutrales Element = 1
+Ordnung von Element in Gruppe: kleinste natürliche Zahl w, so dass g^w = neutrales Element
+
+
+for i in range(1,130):
+    if pow(6,i,131) == 1:
+        print(i)
+
+-> ord(6) = 130
+
+ODER:
+
+si.multiplicative_order(6,131)
+
+---------------------------------------------------------------------------------------------
+2.)
+si.multiplicative_order(3116701003, 3696837919)
+-> 3696837918
+
+---------------------------------------------------------------------------------------------
+3.)
+Diskreter Logarithmus von 37 zur Basis 6 in Z_131^*
+via Brute-Force-Angriff
+
+gesucht:
+6^x ≡ 37 mod 131
+
+base = 6
+target = 37
+n = 131
+
+x = 0
+while True:
+    if pow(base, x, n) == target:
+        break
+    x += 1
+
+print(x)
+
+-> 127
+
+---------------------------------------------------------------------------------------------
+4.)

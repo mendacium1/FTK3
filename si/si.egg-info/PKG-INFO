@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: si
+Version: 1.1
+Summary: Package by Jürgen Fuß vor FTK3
+Home-page: https://github.com/mendacium1/FTK3
+Author: Jürgen Fuß
+Author-email: 
+
+Useful functions for DML1, GDK2, and FTK3

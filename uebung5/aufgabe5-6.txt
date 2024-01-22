@@ -1,0 +1,29 @@
+5.
+alpha = 8
+beta = 18
+G = (1,2)
+omega = 29
+
+a)
+A = alpha * G = 8 * G = G + G + G + ... + G = (16,19) (si)
+B = beta * G = 18 * G = (10,4)
+
+b)
+KA = alpbha * B = 8 * B = (1,21)
+KB = beta * A = 18 * A = (1,21)
+
+6.
+alpha = 281
+omega = 577
+G = (3,38)
+ 
+A = alpha * G = 281 * G = (491,136)
+
+b)
+r = k * (491,136) mod omega = 73 (x-Koord)
+s = k^-1 * (H(m) + alpha * r) mod omega = 217
+
+c)
+x = s^-1 * H(m) mod omega = 302
+y = s^-1 * r mod omega = 463
+r = (x * G + y * A) mod omega = (227, 69) + (314, 252) mod omega = 73
