@@ -11,7 +11,7 @@ print(f"Input:\nn = {n}\ne = {e}")
 
 print("\n-------------------------\n")
 
-print("Siehe Kettenbruchentwicklung rechts:")
+print("Siehe Kettenbruchentwicklung (rechte Spalte):")
 
 si.extended_gcd(n, e, verbose=1)
 
@@ -23,6 +23,7 @@ fractions = itertools.islice(fractions, 1, None, 2)
 p = 0
 q = 0
 
+print(f"\nJetzt werden alle möglichen Phis und pq Paare berechnet. Φ muss eine Ganze Zahl sein.")
 # Implementation Jürgen
 DPhis = ((D, (e * D - 1) // K) for (K, D) in fractions if D % 2 == 1 and (e * D - 1) % K == 0)
 pqs = ((-(n - Phi + 1), n) for (D, Phi) in DPhis)
@@ -33,7 +34,7 @@ for (p, q) in pqs:
     x = (-p + math.isqrt(p**2 - 4*q)) // 2
     if n % x == 0:
         potential_factors.append((x, n // x))
-
+        print(f"Es wurde ein pq Paar gefunden, welches ganzzahlig ist und eine Lösung der Gleichung x² - (n - Φ + 1)x + n = 0 ist:")
         # Once we have the correct (p, q) pair, break out of the loop
         break
 
@@ -43,16 +44,18 @@ if potential_factors:
     print(f"p: {p}")
     print(f"q: {q}")
 
+    
     # Calculating 'd'
     phi = (p-1) * (q-1)
     d = pow(e, -1, phi)
+    print(f"\nBerechne d = e⁻¹ mod phi = {e}⁻¹ mod {phi}")
     print(f"d: {d}")
 else:
     print("No factors found. Wiener's attack was not successful with the given input.")
 
 
 #Check if solution of n from p and q is correct
-print("p*q=n?: " + str(n==p*q))
+print("\nCheck if solution is correct:\np*q=n?: " + str(n==p*q))
 
 m = 420
 print(f"Test solution with message {m}")
