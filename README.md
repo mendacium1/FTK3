@@ -23,8 +23,7 @@ Implementierung der verwendeten Verfahren:
  - [x] Klausur/python_jaki/RSA_CRS
 
 # CREDITS
-Jürgen F.
-Sarah S.
-Marlene P.
+ - Jürgen F.
+ - Sarah S.
 
 
